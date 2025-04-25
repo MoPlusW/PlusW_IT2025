@@ -39,14 +39,19 @@
 
 ### 🔸 1. Create AWS Account  
 - [aws.amazon.com](https://aws.amazon.com)
+![EC2 Dashboard](images/empty)
 
 ### 🔸 2. Launch EC2 Instance  
 - Choose AMI (e.g. Ubuntu 22.04 LTS)  
 - Instance type: `t3.micro` (Free Tier)  
 - Security group: allow port `22` (SSH)  
 - Create key pair: download `.pem`
+![Creating Instance](images/Ubuntu)
 
 ### 🔸 3. Connect via Terminal / Git Bash  
 ```bash
 chmod 400 your-key.pem
 ssh -i "your-key.pem" ubuntu@<Your-Public-IP>
+```
+![Creating Instance](images/KeyPair)
+![Creating Instance](images/Access)
