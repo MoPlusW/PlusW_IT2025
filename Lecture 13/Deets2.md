@@ -4,9 +4,9 @@
 ![Date Badge](https://img.shields.io/badge/Date-April%2019%2C%202025-brightgreen)  
 ![Platform Badge](https://img.shields.io/badge/Platform-AWS%20EC2-yellow)  
 
-**👨‍🏫 Instructors:** [Mr. Yasir Nawaz](https://www.linkedin.com/in/yasirnawaz1/), [Mr. Mahmood Iqbal](https://www.linkedin.com/in/mahmood-iqbal-55299849/)  
-**🎓 Organized by:** Plus W 株式会社 & Pakistan Japan Centre  
-**🌐 Supported by:** AOTS & Overseas Employment Corporation (OEC)  
+**👨‍🏫 Instructors:** [Hafiz Muhammad Umair Munir](https://www.linkedin.com/in/hafiz-muhammad-umair-munir-b929b0173/), [Abdul Ahad](https://www.linkedin.com/in/ahad-pro-soft/), [Abdul Hanan Ashraf](https://www.linkedin.com/in/abdul-hanan-ashraf-156115157/)  
+**🎓 Organized by:** [Plus W 株式会社](https://www.linkedin.com/company/plus-w) & [Pakistan Japan Centre](https://www.linkedin.com/company/pakistan-japan-centre)  
+**🌐 Supported by:** [AOTS](https://www.linkedin.com/company/aotsjapan/) & [Overseas Employment Corporation (OEC)](https://oec.gov.pk/)  
 
 ---
 
@@ -24,7 +24,7 @@
 
 ---
 
-## 📅 Today's Agenda
+## 📅 Class's Agenda
 
 - ☁️ Intro to AWS & EC2  
 - 🐧 Comparing Linux Distros (Ubuntu, Amazon Linux, CentOS, Rocky)  
@@ -32,7 +32,6 @@
 - ⚙️ Step-by-step: Launching EC2 instance  
 - 🔐 Creating & managing SSH key pairs  
 - 💻 Connecting via terminal (SSH)  
-- ❓ Q&A + Quiz session  
 
 ---
 
