@@ -50,7 +50,7 @@
 
 ![Creating Instance](Images/Ubuntu.jpeg)
 
-![EC2 Connect](Images/ec2connect.png)
+![EC2 Connect](Images/ec2Conect.png)
 
 ### 🔸 3. Connect via Terminal / Git Bash  
 ```bash
