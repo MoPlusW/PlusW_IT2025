@@ -70,5 +70,3 @@
 ![Commands](Images/14.png)
 
 ![Commands](Images/15.png)
-
-![Commands](Images/16.png)
