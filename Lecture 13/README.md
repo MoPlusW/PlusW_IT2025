@@ -50,6 +50,8 @@
 
 ![Creating Instance](Images/Ubuntu.jpeg)
 
+![EC2 Connect](Images/ec2connect.png)
+
 ### 🔸 3. Connect via Terminal / Git Bash  
 ```bash
 chmod 400 your-key.pem
@@ -57,6 +59,15 @@ ssh -i "your-key.pem" ubuntu@<Your-Public-IP>
 ```
 ![Key Pair](Images/KeyPair.jpeg)
 
+![Key Pair](Images/KeyPair.png)
+
 
 
 ![Access gained](Images/Access.jpeg)
+
+![SSH connect](Images/SSH_connect.png)
+
+
+### 🔸 3. Test out some commands
+![Creating Instance](Images/Commands.png)
+
