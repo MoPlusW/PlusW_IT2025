@@ -41,3 +41,34 @@
 
 ## ✅ Commands
 
+![Commands](Images/1.png)
+
+![Commands](Images/2.png)
+
+![Commands](Images/3.png)
+
+![Commands](Images/4.png)
+
+![Commands](Images/5.png)
+
+![Commands](Images/6.png)
+
+![Commands](Images/7.png)
+
+![Commands](Images/8.png)
+
+![Commands](Images/9.png)
+
+![Commands](Images/10.png)
+
+![Commands](Images/11.png)
+
+![Commands](Images/12.png)
+
+![Commands](Images/13.png)
+
+![Commands](Images/14.png)
+
+![Commands](Images/15.png)
+
+![Commands](Images/16.png)
