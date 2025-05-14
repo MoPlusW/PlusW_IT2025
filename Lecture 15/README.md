@@ -38,8 +38,11 @@ sudo useradd -m -G network_team bob
 - useradd -m -G creates users alice and bob with home directories and adds them to the group.
 
 📌 _Output:_
+
 ![Task 1.1 — Create users & groups](images/task1.1_1.png)
+
 ![Task 1.1 — Show users](images/task1.1_2.png)
+
 ![Task 1.1 — Show groups](images/task1.1_3.png)
 
 #### 📂 Task 1.2 – Set Directory Permissions
@@ -54,7 +57,9 @@ sudo chmod 770 /opt/network_data
 - chmod 770 gives full access to the owner and group only.
 
 📌 _Output:_
+
 ![Task 1.2 — Make directory](images/task1.2_1.png)
+
 ![Task 1.2 — Set directory permissions](images/task1.2_2.png)
 
 ```bash
@@ -64,6 +69,7 @@ ls -ld /opt/network_data
 - ls -ld displays the directory's permissions and metadata.
 
 📌 _Output:_
+
 ![Task 1.2 — Show directory permissions](images/task1.2_3.png)
 
 ---
@@ -83,8 +89,11 @@ mtr --report google.com
 - mtr combines ping and traceroute to report network performance.
 
 📌 _Output:_
+
 ![Task 2.1 — Check connectivity to google.com](images/task2.1_1.png)
+
 ![Task 2.1 — Check route to google.com](images/task2.1_2.png)
+
 ![Task 2.1 — Check route report to google.com](images/task2.1_3.png)
 
 #### 🔍 Task 2.2 – Open Ports & Listening Services
@@ -96,6 +105,7 @@ sudo ss -tulwn
 - netstat and ss display open and listening ports along with their protocols.
 
 📌 _Output:_
+
 ![Task 2.2 — Check open ports & listening services](images/task2.2.png)
 
 #### 🔌 Task 2.3 – Test Remote Port Connectivity
@@ -107,6 +117,7 @@ nc -zv google.com 443
 - telnet and nc test if port 443 is open and accepting connections.
 
 📌 _Output:_
+
 ![Task 2.3 — Test remote port connectivity](images/task2.3.png)
 
 #### 🖧 Task 2.4 – Network Interfaces
@@ -118,6 +129,7 @@ ip addr
 - ifconfig and ip addr display details about network interfaces and IP addresses.
 
 📌 _Output:_
+
 ![Task 2.4 — Check network interfaces](images/task2.4.png)
 
 #### 🌍 Task 2.5 – DNS Lookup
@@ -128,7 +140,9 @@ dig google.com
 - nslookup and dig perform DNS queries to resolve domain names to IPs.
 
 📌 _Output:_
+
 ![Task 2.5 — DNS lookup](images/task2.5_1.png)
+
 ![Task 2.5 — DNS lookup](images/task2.5_2.png)
 
 #### 📥 Task 2.6 – Download Test File
@@ -140,7 +154,9 @@ curl -O https://example.com/testfile.txt
 - wget and curl download a file from a remote server using HTTP.
 
 📌 _Output:_
+
 ![Task 2.6 — Download test file](images/task2.6_1.png)
+
 ![Task 2.6 — Download test file](images/task2.6_2.png)
 
 #### 📊 Task 2.7 – Monitor Bandwidth in Real-Time
@@ -152,7 +168,9 @@ sudo nload eth0
 - iftop and nload monitor real-time network traffic usage on the selected interface.
 
 📌 _Output:_
+
 ![Task 2.7 — Monitor bandwidth in real time](images/task2.7_1.png)
+
 ![Task 2.7 — Monitor load in real time](images/task2.7_2.png)
 
 ---
@@ -166,6 +184,7 @@ tar cvf network_data.tar /opt/network_data
 - tar creates an archive file from the specified directory.
 
 📌 _Output:_
+
 ![Task 3.1 — Archive directory](images/task3.1.png)
 
 #### 🧩 Task 3.2 – Compress with gzip
@@ -176,6 +195,7 @@ gzip network_data.tar
 - gzip compresses the .tar archive to reduce its size.
 
 📌 _Output:_
+
 ![Task 3.2 — Compress archive](images/task3.2.png)
 
 #### 📂 Task 3.3 – Decompress with gunzip
@@ -186,6 +206,7 @@ gunzip network_data.tar.gz
 - gunzip decompresses the .gz file to restore the original archive.
 
 📌 _Output:_
+
 ![Task 3.3 — Decompress](images/task3.3.png)
 
 #### 🧷 Task 3.4 – Use bzip2 Compression
@@ -198,6 +219,7 @@ bunzip2 network_data.tar.bz2
 - bunzip2 decompresses the .bz2 file to retrieve the archive.
 
 📌 _Output:_
+
 ![Task 3.4 — Use bzip2 compression](images/task3.4.png)
 
 ---
@@ -211,6 +233,7 @@ grep "error" /var/log/syslog
 - grep searches for lines containing the word “error” in the system log file.
 
 📌 _Output:_
+
 ![Task 4.1 — Search for “error” in log files](images/task4.1.png)
 
 #### 🔢 Task 4.2 – Count Number of Errors
@@ -221,6 +244,7 @@ grep -c "error" /var/log/syslog
 - -c tells grep to count how many lines match the search.
 
 📌 _Output:_
+
 ![Task 4.2 — Count how many errors found](images/task4.2.png)
 
 #### 📅 Task 4.3 – Extract Specific Fields
@@ -231,6 +255,7 @@ grep "error" /var/log/syslog | awk '{print $1, $2, $3, $5}'
 - awk extracts the timestamp and source column from matching log entries.
 
 📌 _Output:_
+
 ![Task 4.3 — Extract specific fields (timestamps, messages)](images/task4.3.png)
 
 #### 📊 Task 4.4 – Filter & Summarize Errors
@@ -241,4 +266,5 @@ grep "error" /var/log/syslog | awk '{print $5}' | sort | uniq -c | sort -nr
 - awk, sort, and uniq work together to count and sort unique error sources in descending order.
 
 📌 _Output:_
+
 ![Task 4.4 — Combine commands to filter and summarize](images/task4.4.png)
