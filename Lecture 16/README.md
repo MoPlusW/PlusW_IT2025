@@ -1,4 +1,3 @@
-
 # 🐚 Class 16 - Introduction to Bash Scripting Language & GitHub for AI Engineers
 
 ![Course Badge](https://img.shields.io/badge/Course-IT%20%26%20Japanese%20Language-blue)  
