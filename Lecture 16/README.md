@@ -47,29 +47,51 @@
 **Simple Script:**
 ```bash
 #!/bin/bash
-echo "Hello from Bash!"
+echo "This is kinda my first script"
 ```
 
 📌 _Output:_
 
-![Part 2 — Basic Bash Script Output](images/part2_basic_script.png)
+![Part 2 — Basic Bash Script Output](images/task2.1.png)
+
+![Part 2 — Basic Bash Script Output](images/task2.2.png)
 
 ---
 
 ### 📌 Part 3: Using Variables and User Input
 
-**Examples:**
+**Example:**
 ```bash
-name="John"
-echo "Hello, $name"
+#!/bin/bash
 
-read -p "Enter your age: " age
-echo "You are $age years old"
+
+#name=random
+#age=999
+
+<< Random
+read -p "What is your name?" name
+read -p "What is your age?" age
+
+echo "My name is: $name"
+echo "Also btw my age is: $age"
+Random
+
+echo "The script's name is: $0"
+echo "My name is: $1"
+echo "My age is: $2"
+echo "The number of commands in this script are: $#"
+echo "The commands are: $@"
 ```
 
 📌 _Output:_
 
-![Part 3 — Variables and Input](images/part3_variables_input.png)
+![Part 3 — Variables and Input](images/task3.1.png)
+
+![Part 3 — Variables and Input](images/task3.2.png)
+
+![Part 3 — Variables and Input](images/task3.3.png)
+
+![Part 3 — Variables and Input](images/task3.4.png)
 
 ---
 
@@ -77,27 +99,79 @@ echo "You are $age years old"
 
 **Conditionals:**
 ```bash
-if [ $age -ge 18 ]; then
-  echo "Adult"
+#!/bin/bash
+
+read -p "What's your age: " age
+
+if [ $age -ge 18 ];then
+        echo "You are an adult. You can ride the roller coaster"
+elif [ $age -ge 13 ];then
+        echo "You are a teenager. You can also ride the roller coaster"
 else
-  echo "Minor"
+        echo "You are underage. You cannot ride the roller coaster"
 fi
 ```
 
 📌 _Output:_
 
-![Part 4.1 — Conditionals](images/part4_conditionals.png)
+![Part 4.1 — Conditionals](images/task4.1.png)
 
 **Loops:**
 ```bash
+#!/bin/bash
+
+<< ForLoop
+for i in 1 23 35 48 51; do
+        echo "Num$i"
+done
+
 for i in {1..5}; do
-  echo "Number: $i"
+        echo "Num$i"
+done
+ForLoop
+
+
+
+<< WhileLoop
+count=1
+while [ $count -le 5 ]; do
+        echo "$count"
+        ((count++))
+done
+WhileLoop
+
+
+
+x=1
+until [ $x -gt 5 ]; do
+        echo "I will kick you $x time(s)"
+        ((x++))
 done
 ```
 
 📌 _Output:_
 
-![Part 4.2 — Loops](images/part4_loops.png)
+![Part 4.2 — Loops](images/task4.2.1.png)
+
+![Part 4.2 — Loops](images/task4.2.2.png)
+
+
+**Case:**
+```bash
+#!/bin/bash
+
+read -p "Enter a letter: " letter
+case $letter in
+        a|A) echo "Ant";;
+        b|B) echo "Bat";;
+        c|C) echo "Cat";;
+        *) echo "Unknown";;
+esac
+```
+
+📌 _Output:_
+
+![Part 4.3 — Cases](images/task4.3.png)
 
 ---
 
@@ -105,15 +179,21 @@ done
 
 **Function Declaration:**
 ```bash
-greet() {
-  echo "Welcome, $1!"
+#!/bin/bash
+
+say_Salam()
+{
+        echo "Salam, $1!"
 }
-greet "Ali"
+say_Salam $1
+#"Jamal"
 ```
 
 📌 _Output:_
 
-![Part 5 — Functions](images/part5_functions.png)
+![Part 5 — Functions](images/task5.1.png)
+
+![Part 5 — Functions](images/task5.2.png)
 
 ---
 
@@ -121,68 +201,60 @@ greet "Ali"
 
 **Example:**
 ```bash
-if [ $? -ne 0 ]; then
-  echo "An error occurred."
-  exit 1
+#!/bin/bash
+
+DIR="RnaodmName"
+
+if [ -d "$DIR" ]; then
+        echo "Directory $DIR already exists"
+else mkdir $DIR
+        echo "Directory $DIR created successfully"
 fi
 ```
 
 📌 _Output:_
 
-![Part 6 — Error Handling](images/part6_error_handling.png)
+![Part 6 — Error Handling](images/task6.1.png)
 
 ---
 
-## 🧪 Practical Tasks
+## 🧪 Practical Assignments
 
-### 🧮 Task 1: Arithmetic Function (`sum.sh`)
+### 🧮 Assignment 1: Arithmetic Function (`sum.sh`)
 ```bash
 #!/bin/bash
-add() {
-  echo "Sum is: $(($1 + $2))"
+
+add()
+{
+        echo "The sum of $a and $b is: $(($a + $b))"
 }
-add 5 10
+read -p "Enter a number to add: " a
+read -p "Enter another number to add: " b
+
+add $a $b
 ```
 
 📌 _Output:_
 
-![Task 1 — Arithmetic Function](images/task1_sum.png)
+![Task 1 — Arithmetic Function](images/ass1.png)
 
 ---
 
-### 👤 Task 2: User Authentication Script (`login.sh`)
+### 👤 Assignment 2: User Authentication Script (`login.sh`)
 ```bash
 #!/bin/bash
-read -p "Enter username: " user
-if [ "$user" == "admin" ]; then
-  echo "Welcome, admin!"
-else
-  echo "Access Denied."
+
+read -p "Enter username: " username
+
+if [ $username = admin ]; then
+        echo "Welcome admin"
+else echo "You do not have authorization"
 fi
 ```
 
 📌 _Output:_
 
-![Task 2 — User Authentication](images/task2_login.png)
-
----
-
-### 📦 Task 3: GitHub Cloning Script with Checks
-```bash
-#!/bin/bash
-read -p "Enter GitHub URL: " url
-folder=$(basename -s .git "$url")
-
-if [ -d "$folder" ]; then
-  echo "Directory $folder already exists."
-else
-  git clone "$url"
-fi
-```
-
-📌 _Output:_
-
-![Task 3 — GitHub Cloning Script](images/task3_clone.png)
+![Task 2 — User Authentication](images/ass2.png)
 
 ---
 
