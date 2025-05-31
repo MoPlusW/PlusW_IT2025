@@ -283,6 +283,38 @@ sudo docker run -p 3000:3000 node_app
 
 ---
 
+### 📄 Task 1
+![Task 1 Docker Compose](https://via.placeholder.com/600x300?text=Task+1+-+Basic+Docker+Compose)
+
+Create a basic `docker-compose.yml` file:
+```yaml
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+```
+
+### 📄 Task 2
+![Task 2 Multi-container App](https://via.placeholder.com/600x300?text=Task+2+-+Multi-container+App)
+
+Create a multi-container app:
+```yaml
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+```
+
+---
+
 ## 📚 References
 
 - [Docker Docs](https://docs.docker.com/)
