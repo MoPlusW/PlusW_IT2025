@@ -82,26 +82,6 @@ Containerization is a method to bundle applications with their dependencies.
 
 ---
 
-## 🧩 Docker Compose
-
-### 📌 Overview
-
-Docker Compose is a tool to define and manage multi-container Docker apps via YAML files.  
-- Define services, ports, volumes  
-- One command to start/stop the entire environment
-
-**Example:**
-```yaml
-version: '3'
-services:
-  web:
-    image: nginx
-  db:
-    image: mysql
-```
-
----
-
 ## 🔧 Installing Docker (Linux)
 
 **Requirements:** Linux OS, internet, sudo access
@@ -114,16 +94,45 @@ sudo systemctl enable docker
 sudo systemctl start docker
 ```
 
+📌 _Output:_
+
+![Task 1 — install](images/install1.1.png)
+
+![Task 1 — install](images/install1.2.png)
+
 **Test Installation:**
 ```bash
 docker --version
+docker pull hello-world
+docker images
 docker run hello-world
 ```
 
-**To avoid sudo:**
+📌 _Output:_
+
+![Task 1 — install](images/install2.1.png)
+
+![Task 1 — install](images/install2.2.png)
+
+![Task 1 — install](images/install2.3.png)
+
+![Task 1 — install](images/install2.4.png)
+
+**Running Nginx:**
 ```bash
-sudo usermod -aG docker $USER
+docker pull nginx
+docker run -p 8080:80 nginx
 ```
+
+📌 _Output:_
+
+![Task 1 — install](images/install3.1.png)
+
+![Task 1 — install](images/install3.2.png)
+
+![Task 1 — install](images/install3.3.png)
+
+![Task 1 — install](images/install3.4.png)
 
 ---
 
@@ -131,22 +140,110 @@ sudo usermod -aG docker $USER
 
 A text file containing instructions to build a Docker image.
 
-### 🛠 Dockerfile Example
+### 🛠 Flask App Example
 
-```Dockerfile
-FROM node:18
-COPY . /app
+**app.py:**
+```Python
+from flask import Flask
+app = Flask(__name__)
+@app.route('/')
+def home():
+    return "Salam from Flask in Docker!"
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8000)
+```
+
+**requirements.txt:**
+```txt
+flask
+```
+
+**Dockerfile:**
+```dockerfile
+FROM python:3.11-slim
 WORKDIR /app
+COPY . .
+RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 8000
+CMD ["python", "app.py"]
+```
+
+**Build and Run:**
+```bash
+docker build . -t disisname
+docker run -d -p 8000:8000 disisname
+docker ps -a
+```
+
+📌 _Output:_
+
+![Task 2 — Dockerfile](images/dockerfile1.1.png)
+
+![Task 2 — Dockerfile](images/dockerfile1.2.png)
+
+![Task 2 — Dockerfile](images/dockerfile1.3.png)
+
+![Task 2 — Dockerfile](images/dockerfile1.4.png)
+
+![Task 2 — Dockerfile](images/dockerfile1.5.png)
+
+---
+
+### 🛠 Node App Example
+
+**index.js:**
+```javascript
+const express = require('express');
+const app = express();
+app.get('/', (req, res) => {
+  res.send('Salam from Node.js Express!');
+});
+app.listen(3000, () => {
+  console.log('Node app listening on port 3000');
+});
+```
+
+**package.json:**
+```json
+{
+  "name": "node-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
+```
+
+**Dockerfile:**
+```dockerfile
+FROM node:18-alpine
+WORDIR /app
+COPY . .
 RUN npm install
+EXPOSE 3000
 CMD ["node", "index.js"]
 ```
 
 **Build and Run:**
 ```bash
-docker build -t my-node-app .
-docker run -d -p 3000:3000 my-node-app
-docker ps
+docker build . -t anudderapp
+docker run -d -p 3000:3000 anudderapp
+docker ps -a
 ```
+
+📌 _Output:_
+
+![Task 2 — Dockerfile](images/dockerfile1.6.png)
+
+![Task 2 — Dockerfile](images/dockerfile1.7.png)
+
+![Task 2 — Dockerfile](images/dockerfile1.8.png)
+
+![Task 2 — Dockerfile](images/dockerfile1.9.png)
 
 ---
 ## 📁 Docker Compose
@@ -187,22 +284,6 @@ docker-compose logs
 
 ## 🔬 Practical Assignments
 
-### 🧪 Docker Hello World
-```bash
-sudo docker pull hello-world
-sudo docker run hello-world
-```
-
----
-
-### 🌐 NGINX Example
-```bash
-sudo docker pull nginx
-sudo docker run -p 5000:80 nginx
-```
-
----
-
 ### 🐍 Flask App (Dockerized)
 
 **app.py**
@@ -211,7 +292,7 @@ from flask import Flask
 app = Flask(__name__)
 @app.route('/')
 def home():
-    return "Hello from Flask in Docker!"
+    return "Salam from Flask in Docker!"
 app.run(host='0.0.0.0', port=8000)
 ```
 
@@ -244,7 +325,7 @@ sudo docker run -p 8000:8000 python_app
 const express = require('express');
 const app = express();
 app.get('/', (req, res) => {
-  res.send('Hello from Node.js Express!');
+  res.send('Salam from Node.js Express!');
 });
 app.listen(3000, () => {
   console.log('Node app listening on port 3000');
@@ -284,7 +365,6 @@ sudo docker run -p 3000:3000 node_app
 ---
 
 ### 📄 Task 1
-![Task 1 Docker Compose](https://via.placeholder.com/600x300?text=Task+1+-+Basic+Docker+Compose)
 
 Create a basic `docker-compose.yml` file:
 ```yaml
@@ -296,8 +376,9 @@ services:
       - "8080:80"
 ```
 
+
+
 ### 📄 Task 2
-![Task 2 Multi-container App](https://via.placeholder.com/600x300?text=Task+2+-+Multi-container+App)
 
 Create a multi-container app:
 ```yaml
@@ -312,6 +393,16 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root123
 ```
+
+📌 _Output:_
+
+![Task 1 — Compose](images/compose1.1.png)
+
+![Task 1 — Compose](images/compose1.2.png)
+
+![Task 1 — Compose](images/compose1.3.png)
+
+![Task 1 — Compose](images/compose1.4.png)
 
 ---
 
