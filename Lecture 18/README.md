@@ -35,7 +35,7 @@
 
 ---
 
-## 📚 Class Content Summary
+## 📚 Class Content Walkthrough
 
 ### 🔹 Cloning GitHub Repository & Local Setup
 1. Login to Azure and go to EC2
