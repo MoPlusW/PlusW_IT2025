@@ -189,8 +189,8 @@ sudo kill -9 $(sudo lsof -t -i :8000)
 
 ### 📂 Dockerfile Example
 
-![Dockerfile Code](images/dockerfile.png)
-
+18. `cd` into the `django-todo` folder
+- Create a file called `Dockerfile`
 ```dockerfile
 FROM python:3
 RUN pip install django
@@ -200,18 +200,42 @@ COPY . .
 RUN python manage.py makemigrations
 RUN python manage.py migrate
 
-RUN ["python", "manage.py", "runserver", "0.0.0.0:8001"]
+RUN ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 ```
+![Dockerfile Code](images/18%20Create%20Dockerfile.png)
 
+19. Install docker with the command
+```bash
+sudo apt install docker.io
+```
+![Install Docker](images/19%20install%20docker.png)
 ---
 
 ### 🚀 Build & Run Docker Image
 
-![Docker Run](images/docker-run.png)
-
+20. Build the docker image with the command
 ```bash
-sudo docker build . -t todo-app
-sudo docker run -p 8001:8001 todo-app
+sudo docker build . -t django_app
 ```
+![Docker Image Build](images/20%20build%20docker%20image%20P1.png)
+![Docker Image Build](images/20%20build%20docker%20image%20P2.png)
 
+21. Check if the image built successfully
+```bash
+sudo docker images
+```
+![Docker Images](images/21%20Check%20if%20docker%20image%20is%20built.png)
+
+22. Run docker image
+```bash
+sudo docker run -d -p 8000:8000 django_app
+```
+- Confirm if image is running
+```bash
+sudo docker ps -a
+```
+![Docker Run](images/22%20Run%20docker%20image%20confirm.png)
+
+23. Open browser and paste the instance public ip with the port 8000
+![Docker Run](images/23%20Open%20app.png)
 ---
